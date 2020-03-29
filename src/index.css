@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.list-of-countries {
+  background-color: rgb(38, 2, 59);
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.single-country {
+  color: white;
+}

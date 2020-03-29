@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 import { DataService } from '../services/DataService';
 // import Gio from '../../src/Gio.js';
 const GIO = require('giojs');
 
-class GioComponent extends Component {
 
-    componentDidMount() {
-        const dataService: DataService = new DataService();
-        const result = dataService.getAllData();
-        
+export class GioComponent  extends React.Component {
+
+    componentDidMount() {                
         const container = document.getElementById( "globalArea" );
         const controller = new GIO.Controller( container );
         // controller.addData( data );
