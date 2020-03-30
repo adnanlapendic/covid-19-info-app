@@ -11,16 +11,11 @@ export interface SingleListComponentState {
 }
  
 class SingleListComponent extends React.Component<SingleListComponentProps, SingleListComponentState> {
-    // state = { :  }
-    test() {
-        console.log('asdad');
-        
-    }
     render() { 
         const country = this.props.country;
         const selectCountry = this.props.selectCountry;
         return ( 
-            <button type="button" className="btn btn-secondary w-100" onClick={()=>selectCountry(country)}>{country.name}</button>
+            <button type="button" className="btn btn-secondary select-country-button w-100" onClick={()=>selectCountry(country)}>{country.name}</button>
          );
     }
 }

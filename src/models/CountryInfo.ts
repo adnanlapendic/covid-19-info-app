@@ -3,10 +3,18 @@ import { DeathsInfo } from "./DeathsInfo";
 
 export class CountryInfo {
     
-    country: string | undefined;
-    cases: CasesInfo | undefined;
-    deaths: DeathsInfo | undefined;
-    day: string | undefined;
-    time: string | undefined;
+    country: string;
+    cases: CasesInfo;
+    deaths: DeathsInfo;
+    day: string;
+    time: string;
+
+    constructor(country: string, cases: CasesInfo, deaths:DeathsInfo, day: string, time: string) {
+        this.country = country;
+        this.cases = cases;
+        this.deaths = deaths;
+        this.day = day;
+        this.time = time;
+    }
 
 }

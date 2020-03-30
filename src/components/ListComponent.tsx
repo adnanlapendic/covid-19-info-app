@@ -28,8 +28,8 @@ export class ListComponent extends React.Component<ListComponentProps, ListCompo
         this.getCountries();
     }
 
-    async getCountries() {
-        const countries =  await dataService.getCountries();
+    getCountries() {
+        const countries =  dataService.getCountries();
         this.setState({countries: countries})
     }
     

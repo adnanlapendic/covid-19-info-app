@@ -4,49 +4,93 @@ const GIO = require('giojs');
 
 export interface GlobeComponentProps {
     test: Country,
-    ref: any
+    ref: any,
+    bindCountryFromMap: any
 }
  
 export interface GlobeComponentState {
-    currentCountry: string | undefined
+    currentCountry: string | undefined,
+    rotateGlobe: boolean
+}
+
+const config = {
+	"control": {
+		"stats": false,
+		"disableUnmentioned": false,
+		"lightenMentioned": true,
+		"inOnly": false,
+		"outOnly": false,
+		"initCountry": "CN",
+		"halo": true,
+		"transparentBackground": true,
+		"autoRotation": false,
+		"rotationRatio": 1
+	},
+	"color": {
+		"surface": 2481914,
+		"selected": 12199719,
+		"in": 0,
+		"out": 0,
+		"halo": 2141154,
+		"background": 0
+	},
+	"brightness": {
+		"ocean": 0.5,
+		"mentioned": 1,
+		"related": 0
+	}
 }
  
 class GlobeComponent extends React.Component<GlobeComponentProps, GlobeComponentState> {
-    state = { currentCountry: '' }
+    state = { currentCountry: '' ,
+                rotateGlobe: true
+            }
     controller:any = null;
-
+    myThis: any = this;
     changeName = (country: Country) => {
         console.log(country);
         
         this.setState({
-            currentCountry: country.code
+            currentCountry: country.code,
+            rotateGlobe: false
         });
         const controller = this.getGioGlobeController();
-
-       controller.switchCountry( country.code);
+        controller.setAutoRotation( this.state.rotateGlobe, 1 );
+        console.log(this.state.rotateGlobe);
+        
+        controller.switchCountry( country.code);
 
       };
 
     componentDidMount() {                                
         const controller = this.getGioGlobeController();
-        controller.setSurfaceColor( 0x00FF00 );
+        // controller.setSurfaceColor( 0xFF0084 );
     
         // use the onCountryPicked() to set callback when clicked country changed
-        controller.onCountryPicked( callback );
-        controller.switchCountry( 'CN');
+        controller.onCountryPicked( callback.bind(this) );
+        controller.switchCountry( 'VA');
+        controller.setAutoRotation( this.state.rotateGlobe, 1 );
+        controller.setTransparentBackground( true );
         // defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries which are passed parameters into console
-        function callback ( selectedCountry:any, relatedCountries:any ) {
+        function callback (this: any,  selectedCountry:any, relatedCountries:any ) {
         
+            // this.bindCountryFromMap(selectedCountry.ISOcode)   
+        this.setState({
+            currentCountry: selectedCountry.ISOCode,
+            rotateGlobe: false
+        });
+        controller.setAutoRotation( this.state.rotateGlobe, 1 );
+
             console.log(selectedCountry);
             console.log(relatedCountries);
     
     }
       }
-
+      
       getGioGlobeController() {
           if(this.controller == null){
             const container = document.getElementById( "globalArea" );
-            const controller = new GIO.Controller( container );
+            const controller = new GIO.Controller( container, config );
             this.controller = controller;
             controller.init();
             return controller;
@@ -59,11 +103,7 @@ class GlobeComponent extends React.Component<GlobeComponentProps, GlobeComponent
 
     render() {             
         return ( 
-            <div>
-                <div id="globalArea" style={{width: 1000, height: 1000}}></div>
-
-            </div>
-
+                <div onClick={()=>this.props.bindCountryFromMap(this.state.currentCountry)} id="globalArea"></div>
          );
     }
 }

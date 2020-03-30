@@ -13,7 +13,6 @@ code {
 }
 
 .list-of-countries {
-  background-color: rgb(38, 2, 59);
   height: 100vh;
   overflow-y: scroll;
 }
@@ -21,3 +20,50 @@ code {
 .single-country {
   color: white;
 }
+
+.select-country-button.w-100{
+  background-color: #343a40;
+
+}
+
+#globalArea{
+  width: 99%;
+  height: 99vh;
+}
+
+.top-info-data {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: #20ABE2;
+  padding-left: 15px;
+  pointer-events: none;
+
+}
+
+.bottom-info-data {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #20ABE2;
+  padding-left: 15px;
+
+
+}
+.red {
+  color: rgb(247, 66, 66);
+}
+
+.green {
+  color: rgb(17, 150, 17);
+}
+
+.info-data-1,
+.info-data-2,
+.info-data-3 {
+  padding-left: 15px;
+  padding-top: 15px;
+  height: 10%;
+  /* background-color: rgba(161, 159, 159, 0.1); */
+}
+
