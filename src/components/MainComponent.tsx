@@ -4,7 +4,7 @@ import { ListComponent } from './ListComponent';
 import { CountryInfo } from '../models/CountryInfo';
 import GlobeComponent from './GlobeComponent';
 import { Country } from '../models/Country';
-import image from '../wallpaperflare.com_wallpaper.jpg';
+import image from '../background.jpg';
 import CardComponent from './CardComponent';
 export interface MainComponentProps {
 	selectCountry: any;
