@@ -32,8 +32,8 @@ export class MainComponent<
 		selectedCountry: { name: '', code: '' },
 		dataForDisplay: {
 			country: '',
-			cases: { new: '', active: 0, critical: 0, recovered: 0, total: 0 },
-			deaths: { new: '', total: 0 }
+			cases: { new: '0', active: 0, critical: 0, recovered: 0, total: 0 },
+			deaths: { new: '0', total: 0 }
 		}
 	};
 
@@ -107,12 +107,12 @@ export class MainComponent<
 					<img className='background-image' src={image} alt='' />
 					<div className='overlay'></div>
 					<div className='col-sm-2 pr-0'>
-						<div className='row big-card'>
-							<div className='card border-primary mb-3 transparent w-100 ml-5 mt-4'>
-								<div className='card-header text-primary'>
-									LIST OF COUNTRIES
+						<div className='row big-card pl-4 pt-4'>
+							<div className='card mb-3 transparent w-100'>
+								<div className='card-header cvd-card-header'>
+									<h4 className="pt-2">LIST OF COUNTRIES</h4>
 								</div>
-								<div className='card-body text-primary'>
+								<div className='card-body cvd-card-body'>
 									<ListComponent
 										selectCountry={this.selectCountryfromList.bind(this)}
 									/>
@@ -162,83 +162,69 @@ export class MainComponent<
 							</div>
 						</div>
 					</div>
-					<div className='col-sm-2 pr-0 mt-4'>
-						<div className='row pl-0'>
-							<div className='col-12 pl-0 mr-4 pr-4'>
-								<div className='card border-primary mb-3 transparent bottom-card'>
-									<div className='card-header'>DEVELOPER </div>
-									<div className='card-body bottom-card-list-data'>
-										<div className='row text-left'>
-											<div className='col-12'>
-												<a
-													href='https://www.linkedin.com/in/adnan-lapendic-413805136/'
-													target='_blank'>
-													Adnan Lapendic
-												</a>
-											</div>
-											<div className='col-12'>Bosnia and Herzegovina</div>
-											<div className='col-12'>adnan.lapendic@gmail.com</div>
-										</div>{' '}
+					<div className='col-sm-2 mt-4 pr-5'>
+						<div className="row justify-content-center h-100">
+							<div className="col-12">
+								<div className="h-100 d-flex flex-column">
+									<div className="row justify-content-center pb-4">
+										<div className='card transparent'>
+											<a className='link-lapa'
+												href='https://www.linkedin.com/in/adnan-lapendic-413805136/'
+												target='_blank'>
+												<div className='card-body'>
+													<div className='row'>
+														<div className='col-12'>Created by</div>
+														<div className='col-12'>
+															Adnan Lapendic
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
 									</div>
-								</div>
-							</div>
-						</div>
-						<div className='row right-big-card'>
-							<div className='card border-primary transparent w-100 mr-4'>
-								<div className='card-header text-center'>
-									INFECTED
-									<h2 className='red'>
-										{this.state.dataForDisplay.cases.total}
-									</h2>
-								</div>
-								<div className='card-body text-primary all-data-table'>
-									<div className='col-12'>
-										<div className='row'>
-											<div className='col-7 text-left'>TODAY:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.cases.new}
-											</div>
-										</div>
-										<div className='row text-left'>
-											<div className='col-7 text-left'>ACTIVE:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.cases.active}
-											</div>
-										</div>
-										<div className='row text-left'>
-											<div className='col-7 text-left'>CRITICAL:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.cases.critical}
-											</div>
-										</div>
-										<div className='row text-left'>
-											<div className='col-7 text-left'>RECOV:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.cases.recovered}
-											</div>
-										</div>
-										<div className='row text-left'>
-											<div className='col-7 text-left'>DIED:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.deaths.new}
-											</div>
-										</div>
-										<div className='row text-left'>
-											<div className='col-7 text-left'>DEATHS:</div>
-											<div className='col-5 text-right'>
-												{this.state.dataForDisplay.deaths.total}
+									<div className="row flex-grow-1 pb-4">
+										<div className='card transparent w-100'>
+											<div className='card-body flex-grow-1'>
+													<div className='col-12'>
+														<div className="big-card-data-title">INFECTED</div>
+														<div className="big-card-data-text"> {this.state.dataForDisplay.cases.total}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">LAST 24h</div>
+														<div className="big-card-data-text"> {parseInt(this.state.dataForDisplay.cases.new)}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">ACTIVE</div>
+														<div className="big-card-data-text"> {this.state.dataForDisplay.cases.active}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">CRITICAL</div>
+														<div className="big-card-data-text"> {this.state.dataForDisplay.cases.critical}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">RECOVERED</div>
+														<div className="big-card-data-text"> {this.state.dataForDisplay.cases.recovered}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">DIED IN 24h</div>
+														<div className="big-card-data-text"> {parseInt(this.state.dataForDisplay.deaths.new)}</div>
+													</div>
+													<div className='col-12'>
+														<div className="big-card-data-title">DEATHS</div>
+														<div className="big-card-data-text"> {this.state.dataForDisplay.deaths.total}</div>
+													</div>
 											</div>
 										</div>
 									</div>
+									<div className="row justify-content-center">
+										<div className='col-12 right-bottom-card'>
+											<CardComponent
+												countries={this.state.coronaInfoInCountries}
+												title={'DEATHS TODAY'}
+											/>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div className='row bottom-info-data pl-0'>
-							<div className='col-12 pl-0 pr-2'>
-								<CardComponent
-									countries={this.state.coronaInfoInCountries}
-									title={'DEATHS TODAY'}
-								/>
 							</div>
 						</div>
 					</div>

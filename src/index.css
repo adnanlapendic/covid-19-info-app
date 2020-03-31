@@ -1,15 +1,10 @@
-.card-container {
-	max-height: 200px;
-	padding: 20px;
+.col-12.right-bottom-card {
+	padding: 0;
 }
 
 .big-card {
 	height: 100%;
 	width: 100%;
-}
-
-.right-big-card {
-	height: 65%;
 }
 
 .list-of-countries {
@@ -18,33 +13,36 @@
 	overflow-y: scroll;
 }
 
-.single-country {
-	color: white;
-}
-
-.my-row {
-	height: 100%;
-}
-
-.card.border-primary.transparent {
+.card.transparent {
 	background-color: rgba(184, 191, 211, 0.1);
-	color: #20abe2;
+	color: rgb(61, 200, 255);
+	box-shadow: 0 4px 8px 0 rgba(61, 200, 255, 0.479), 0 6px 20px 0 rgba(61, 200, 255, 0.473);
+}
+
+.link-lapa {
+	color: #3dc8ff;
+}
+.link-lapa:hover {
+	background-color: #061a33;
+	color: #3dc8ff;
+	text-decoration: none;
 }
 
 .select-country-button.w-100 {
-	background-color: rgba(184, 191, 211, 0.1);
+	color: #3dc8ff;
 	height: 30px;
 	padding: 0;
 	border: 1px solid #20abe25e;
 }
 
-.select-country-button.w-100:hover {
-	color: #fff;
+.select-country-button.w-100:hover,
+.select-country-button.w-100:focus {
+	color: #3dc8ff;
 	background-color: #061a33;
 	border-color: #020e1d;
 }
 
-.card-body.text-primary {
+.card-body.cvd-card-body {
 	padding: 0;
 	max-height: -webkit-fill-available;
 	overflow-y: scroll;
@@ -59,7 +57,7 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
-	color: #20abe2;
+	color: #3dc8ff;
 	padding-left: 15px;
 	pointer-events: none;
 }
@@ -69,18 +67,18 @@
 	bottom: 0;
 	padding-bottom: 0;
 	width: 100%;
-	color: #20abe2;
+	color: #3dc8ff;
 	padding-left: 15px;
 }
 
 .bottom-card {
-	height: 15vh;
+	height: 20vh;
 }
 .bottom-card-list-data {
 	overflow-y: scroll;
 }
 
-.card-header.text-primary {
+.card-header.cvd-card-header {
 	padding: 0;
 	text-align: center;
 }
@@ -89,15 +87,8 @@
 	margin-right: 0;
 }
 
-.card-body.text-primary.bottom-card-list-data {
+.card-body.cvd-card-body.bottom-card-list-data {
 	padding: 5px;
-}
-.red {
-	color: rgb(255, 255, 255);
-}
-
-.green {
-	color: rgb(17, 150, 17);
 }
 
 .bottom-right-card {
@@ -115,8 +106,26 @@
 	min-width: 100%;
 	min-height: 100%;
 	position: absolute;
-	background: rgba(1, 13, 20, 0.521);
+	background: rgba(1, 13, 20, 0.808);
 	text-align: center;
+}
+
+.big-card-data-title {
+	font-size: 2vh;
+	text-align: center;
+}
+.big-card-data-text {
+	font-size: 2.7vh;
+	border-bottom: #20abe2 1px solid;
+	text-align: center;
+}
+
+.border-primary {
+	color: #3dc8ff;
+}
+
+.col-12.text-center.no-padding {
+	padding: 0px;
 }
 
 html {

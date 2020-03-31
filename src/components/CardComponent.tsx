@@ -8,10 +8,7 @@ export interface CardComponentProps {
 
 export interface CardComponentState {}
 
-class CardComponent extends React.Component<
-	CardComponentProps,
-	CardComponentState
-> {
+class CardComponent extends React.Component<CardComponentProps, CardComponentState> {
 	getCountriesWithMostCases(sortBy: string) {
 		let countries: CountryInfo[] = this.props.countries;
 		countries = countries.sort((a, b) => {
@@ -86,9 +83,9 @@ class CardComponent extends React.Component<
 
 	render() {
 		return (
-			<div className='card border-primary mb-3 transparent bottom-card'>
-				<div className='card-header text-primary'>{this.props.title}</div>
-				<div className='card-body text-primary bottom-card-list-data'>
+			<div className='card mb-3 transparent bottom-card'>
+				<div className='card-header cvd-card-header'>{this.props.title}</div>
+				<div className='card-body cvd-card-body bottom-card-list-data'>
 					{this.renderMostCasesResults(this.props.title)}
 				</div>
 			</div>

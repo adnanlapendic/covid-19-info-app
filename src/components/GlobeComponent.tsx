@@ -28,7 +28,7 @@ const config = {
 	},
 	color: {
 		surface: 2481914,
-		selected: 12199719,
+		// selected: 12199719,
 		in: 0,
 		out: 0,
 		halo: 2141154
@@ -41,10 +41,7 @@ const config = {
 	}
 };
 
-class GlobeComponent extends React.Component<
-	GlobeComponentProps,
-	GlobeComponentState
-> {
+class GlobeComponent extends React.Component<GlobeComponentProps, GlobeComponentState> {
 	state = { currentCountry: '', rotateGlobe: true };
 	controller: any = null;
 	myThis: any = this;
@@ -66,6 +63,10 @@ class GlobeComponent extends React.Component<
 		controller.switchCountry('VA');
 		controller.setAutoRotation(this.state.rotateGlobe, 1);
 		controller.setTransparentBackground(true);
+		controller.setSurfaceColor('#3dc8ff');
+		controller.setSelectedColor('#B12305');
+		controller.adjustOceanBrightness(0.9);
+
 		// defined a callback function, as a demo, this function simply output selectedCountry, relatedCountries which are passed parameters into console
 		function callback(this: any, selectedCountry: any, relatedCountries: any) {
 			this.setState({
@@ -89,11 +90,7 @@ class GlobeComponent extends React.Component<
 	}
 
 	render() {
-		return (
-			<div
-				onClick={() => this.props.bindCountryFromMap(this.state.currentCountry)}
-				id='globalArea'></div>
-		);
+		return <div onClick={() => this.props.bindCountryFromMap(this.state.currentCountry)} id='globalArea' />;
 	}
 }
 
