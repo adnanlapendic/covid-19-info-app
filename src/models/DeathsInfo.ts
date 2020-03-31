@@ -1,4 +1,9 @@
 export class DeathsInfo {
-    newDeaths: string | undefined;
-    total: number | string |undefined;
+    new: string;
+    total: number;
+
+    constructor(newDeaths: string, total: number) {
+        this.new = newDeaths;
+        this.total = total;
+    }
 }

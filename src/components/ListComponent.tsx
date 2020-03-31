@@ -1,52 +1,49 @@
-import React, { Component } from 'react'
+import React from 'react';
 import { DataService } from '../services/DataService';
 import SingleListComponent from './SingleListComponent';
 
 const dataService: DataService = new DataService();
 
 export interface ListComponentProps {
-    selectCountry: any,
+	selectCountry: any;
 }
- 
-export interface ListComponentState {
-    
-}
- 
 
-export class ListComponent extends React.Component<ListComponentProps, ListComponentState> {
+export interface ListComponentState {}
 
-    state = {
-        countries: []
-    }
+export class ListComponent extends React.Component<
+	ListComponentProps,
+	ListComponentState
+> {
+	state = {
+		countries: []
+	};
 
-    constructor(props: any){
-        super(props);
-        // dataService.getAllData();
-    }
+	componentDidMount() {
+		this.getCountries();
+	}
 
-    componentDidMount(){
-        this.getCountries();
-    }
+	getCountries() {
+		const countries = dataService.getCountries();
+		this.setState({ countries: countries });
+	}
 
-    getCountries() {
-        const countries =  dataService.getCountries();
-        this.setState({countries: countries})
-    }
-    
-    render() {
-        const countries = this.state.countries;
-        const selectCountry = this.props.selectCountry;
-        
-        return (
-        <div className="list-of-countries">
-            {countries.map((country, index) => {
-                return (
-                <div className="row" key={index}>
-                    <SingleListComponent country={country} selectCountry={selectCountry}/>
-                </div>
-                );
-            })}
-        </div>
-        );
-    };
+	render() {
+		const countries = this.state.countries;
+		const selectCountry = this.props.selectCountry;
+
+		return (
+			<div>
+				{countries.map((country, index) => {
+					return (
+						<div className='row' key={index}>
+							<SingleListComponent
+								country={country}
+								selectCountry={selectCountry}
+							/>
+						</div>
+					);
+				})}
+			</div>
+		);
+	}
 }
