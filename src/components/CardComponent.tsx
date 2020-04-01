@@ -15,8 +15,9 @@ class CardComponent extends React.Component<CardComponentProps, CardComponentSta
 			const comparable = this.getComparable(a, b, sortBy);
 			return comparable;
 		});
+
 		countries.reverse();
-		return countries.slice(1, 200);
+		return countries;
 	}
 
 	getComparable(a: CountryInfo, b: CountryInfo, sortBy: string) {
@@ -27,9 +28,9 @@ class CardComponent extends React.Component<CardComponentProps, CardComponentSta
 				return a.cases.active - b.cases.active;
 			case 'RECOVERED':
 				return a.cases.recovered - b.cases.recovered;
-			case 'DEATHS':
+			case 'TOTAL DEATHS':
 				return a.deaths.total - b.deaths.total;
-			case 'DEATHS TODAY':
+			case 'DEATHS LAST 24h':
 				if (a.deaths.new === null) {
 					a.deaths.new = '0';
 				}
@@ -69,15 +70,18 @@ class CardComponent extends React.Component<CardComponentProps, CardComponentSta
 				case 'RECOVERED':
 					data = country.cases.recovered;
 					break;
-				case 'DEATHS':
+				case 'TOTAL DEATHS':
 					data = country.deaths.total;
 					break;
-				case 'DEATHS TODAY':
+				case 'DEATHS LAST 24h':
 					data = country.deaths.new;
 					break;
 			}
 
-			return this.renderSingleRowInInfoTable(country.country, data, index);
+			if (country.country !== 'All') {
+				return this.renderSingleRowInInfoTable(country.country, data, index);
+			}
+			return null;
 		});
 	}
 

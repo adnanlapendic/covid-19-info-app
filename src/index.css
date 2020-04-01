@@ -21,11 +21,13 @@
 
 .link-lapa {
 	color: #3dc8ff;
+	transition: 0.7s;
 }
 .link-lapa:hover {
-	background-color: #061a33;
-	color: #3dc8ff;
+	background-color: #3dc8ff;
+	color: #061a33;
 	text-decoration: none;
+	border-radius: 4px;
 }
 
 .select-country-button.w-100 {
@@ -37,8 +39,8 @@
 
 .select-country-button.w-100:hover,
 .select-country-button.w-100:focus {
-	color: #3dc8ff;
-	background-color: #061a33;
+	color: #061a33;
+	background-color: #3dc8ff;
 	border-color: #020e1d;
 }
 
@@ -106,7 +108,7 @@
 	min-width: 100%;
 	min-height: 100%;
 	position: absolute;
-	background: rgba(1, 13, 20, 0.808);
+	background: rgba(1, 13, 20, 0.705);
 	text-align: center;
 }
 
