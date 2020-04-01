@@ -101,9 +101,9 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 		if (this.state.dataForDisplay.country === 'All') {
 			return (
 				<div>
-					<h1>'THE WORLD'</h1>
+					<h1>THE WORLD</h1>
 					<div>
-						Select country on the globe, or from the list on left side to display COVID-19 virus related
+						Select country on the globe, or from the list on left side to display COVID-19 related
 						information.
 					</div>
 				</div>
@@ -235,7 +235,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 										<div className='col-12 right-bottom-card'>
 											<CardComponent
 												countries={this.state.coronaInfoInCountries}
-												title={'DEATHS LAST 24h'}
+												title={'DIED IN LAST 24h'}
 											/>
 										</div>
 									</div>

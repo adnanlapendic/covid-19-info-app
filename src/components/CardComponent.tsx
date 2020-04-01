@@ -30,7 +30,7 @@ class CardComponent extends React.Component<CardComponentProps, CardComponentSta
 				return a.cases.recovered - b.cases.recovered;
 			case 'TOTAL DEATHS':
 				return a.deaths.total - b.deaths.total;
-			case 'DEATHS LAST 24h':
+			case 'DIED IN LAST 24h':
 				if (a.deaths.new === null) {
 					a.deaths.new = '0';
 				}
@@ -73,7 +73,7 @@ class CardComponent extends React.Component<CardComponentProps, CardComponentSta
 				case 'TOTAL DEATHS':
 					data = country.deaths.total;
 					break;
-				case 'DEATHS LAST 24h':
+				case 'DIED IN LAST 24h':
 					data = country.deaths.new;
 					break;
 			}
