@@ -97,6 +97,22 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 		this.getDataForCountry(country);
 	}
 
+	showInfoAboutApp(country: Country) {
+		if (this.state.dataForDisplay.country === 'All') {
+			return (
+				<div>
+					<h1>'THE WORLD'</h1>
+					<div>
+						Select country on the globe, or from the list on left side to display COVID-19 virus related
+						information.
+					</div>
+				</div>
+			);
+		} else {
+			return <h1>{this.state.dataForDisplay.country}</h1>;
+		}
+	}
+
 	render() {
 		return (
 			<div className='container-fluid'>
@@ -118,13 +134,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 					<div className='col-sm-8 pl-0'>
 						<div className='row top-info-data'>
 							<div className='col-12 info-data-2 text-center'>
-								<h1>
-									{this.state.dataForDisplay.country === 'All' ? (
-										'THE WORLD'
-									) : (
-										this.state.dataForDisplay.country
-									)}
-								</h1>
+								{this.showInfoAboutApp(this.state.selectedCountry)}
 							</div>
 						</div>
 						<GlobeComponent
