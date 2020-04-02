@@ -119,7 +119,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 				<div className='row my-row'>
 					<img className='background-image' src={image} alt='' />
 					<div className='overlay' />
-					<div className='col-sm-2 pr-0'>
+					<div className='col-sm-3 col-md-3 col-lg-2 pr-0'>
 						<div className='row big-card pl-4 pt-4'>
 							<div className='card mb-3 transparent w-100'>
 								<div className='card-header cvd-card-header'>
@@ -131,7 +131,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 							</div>
 						</div>
 					</div>
-					<div className='col-sm-8 pl-0'>
+					<div className='col-sm-6 col-md-6 col-lg-8 pl-0'>
 						<div className='row top-info-data'>
 							<div className='col-12 info-data-2 text-center'>
 								{this.showInfoAboutApp(this.state.selectedCountry)}
@@ -143,42 +143,37 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 							test={this.state.selectedCountry}
 						/>
 						<div className='row bottom-info-data'>
-							<div className='col-3'>
+							<div className='col-xl-3 col-lg-4 col-md-6 col-6'>
 								<CardComponent countries={this.state.coronaInfoInCountries} title={'TOTAL'} />
 							</div>
-							<div className='col-3'>
+							<div className='col-xl-3 col-lg-4  col-md-6 col-6 hide-on-extra-small-devices'>
 								<CardComponent countries={this.state.coronaInfoInCountries} title={'ACTIVE'} />
 							</div>
-							<div className='col-3'>
+							<div className='col-xl-3 col-lg-4  col-md-6 col-6'>
 								<CardComponent countries={this.state.coronaInfoInCountries} title={'RECOVERED'} />
 							</div>
-							<div className='col-3'>
+							<div className='col-xl-3 col-lg-4  col-md-6 col-6 hide-on-small-devices'>
 								<CardComponent countries={this.state.coronaInfoInCountries} title={'TOTAL DEATHS'} />
 							</div>
 						</div>
 					</div>
-					<div className='col-sm-2 mt-4 pr-5'>
+					<div className='col-sm-3 col-md-3 col-lg-2 mt-4 pr-5'>
 						<div className='row justify-content-center h-100'>
 							<div className='col-12'>
 								<div className='h-100 d-flex flex-column'>
-									<div className='row justify-content-center pb-4'>
-										<div className='card transparent w-100'>
-											<a
-												className='link-lapa'
-												href='https://www.linkedin.com/in/adnan-lapendic-413805136/'
-												target='_blank'>
-												<div className='card-body'>
-													<div className='row'>
-														<div className='col-12'>Created by</div>
-														<div className='col-12'>Adnan Lapendic</div>
-													</div>
-												</div>
-											</a>
+									<a
+										className='link-lapa'
+										href='https://www.linkedin.com/in/adnan-lapendic-413805136/'
+										target='_blank'>
+										<div className='row'>
+											<div className='col-12'>Created by</div>
+											<div className='col-12'>Adnan Lapendic</div>
 										</div>
-									</div>
+									</a>
+
 									<div className='row flex-grow-1 pb-4'>
 										<div className='card transparent w-100'>
-											<div className='card-body flex-grow-1'>
+											<div className='card-body flex-grow-1 dynamic-data-right'>
 												<div className='col-12'>
 													<div className='big-card-data-title'>INFECTED</div>
 													<div className='big-card-data-text'>
@@ -200,7 +195,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 														{this.state.dataForDisplay.cases.active}
 													</div>
 												</div>
-												<div className='col-12'>
+												<div className='col-12 hide-on-small-devices'>
 													<div className='big-card-data-title'>CRITICAL</div>
 													<div className='big-card-data-text'>
 														{' '}
@@ -214,7 +209,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 														{this.state.dataForDisplay.cases.recovered}
 													</div>
 												</div>
-												<div className='col-12'>
+												<div className='col-12 hide-on-small-devices'>
 													<div className='big-card-data-title'>NEW DEATHS</div>
 													<div className='big-card-data-text'>
 														{' '}
@@ -231,11 +226,20 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 											</div>
 										</div>
 									</div>
-									<div className='row justify-content-center'>
+									<div className='row justify-content-center hide-on-small-devices'>
 										<div className='col-12 right-bottom-card'>
 											<CardComponent
 												countries={this.state.coronaInfoInCountries}
 												title={'DIED IN LAST 24h'}
+											/>
+										</div>
+									</div>
+
+									<div className='row justify-content-center hide-on-big-devices'>
+										<div className='col-12 right-bottom-card'>
+											<CardComponent
+												countries={this.state.coronaInfoInCountries}
+												title={'TOTAL DEATHS'}
 											/>
 										</div>
 									</div>

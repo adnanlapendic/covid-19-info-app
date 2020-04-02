@@ -7,8 +7,18 @@
 	width: 100%;
 }
 
+.big-card-data-title {
+	font-size: 1.2vw;
+	text-align: center;
+}
+.big-card-data-text {
+	font-size: 1.6vw;
+	border-bottom: #20abe2 1px solid;
+	text-align: center;
+}
+
 .list-of-countries {
-	max-height: 94vh;
+	/* max-height: 94vh; */
 	width: 100%;
 	overflow-y: scroll;
 }
@@ -21,13 +31,8 @@
 
 .link-lapa {
 	color: #3dc8ff;
-	transition: 0.7s;
-}
-.link-lapa:hover {
-	background-color: #3dc8ff;
-	color: #061a33;
-	text-decoration: none;
-	border-radius: 4px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
 .select-country-button.w-100 {
@@ -74,7 +79,7 @@
 }
 
 .bottom-card {
-	height: 20vh;
+	height: 15vh;
 }
 .bottom-card-list-data {
 	overflow-y: scroll;
@@ -113,11 +118,9 @@
 }
 
 .big-card-data-title {
-	font-size: 2vh;
 	text-align: center;
 }
 .big-card-data-text {
-	font-size: 2.7vh;
 	border-bottom: #20abe2 1px solid;
 	text-align: center;
 }
@@ -138,4 +141,56 @@ html {
 	width: 0px;
 	height: 0px; /* Remove scrollbar space */
 	background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.row.justify-content-center.hide-on-big-devices {
+	display: none;
+}
+@media (max-width: 1200px) {
+	.big-card-data-title,
+	.big-card-data-text {
+		font-size: 16px;
+	}
+
+	.row.justify-content-center.hide-on-small-devices {
+		display: none;
+	}
+
+	.row.justify-content-center.hide-on-big-devices {
+		display: initial;
+	}
+	.hide-on-small-devices,
+	.row.justify-content-center.hide-on-small-devices {
+		display: none;
+	}
+
+	.row.justify-content-center.hide-on-big-devices {
+		display: initial;
+	}
+}
+
+@media (max-width: 991px) {
+	.card-body.flex-grow-1.dynamic-data-right {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.hide-on-extra-small-devices {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.link-lapa,
+	.row.bottom-info-data,
+	.row.justify-content-center.hide-on-big-devices {
+		display: none;
+	}
+
+	.big-card-data-title,
+	.big-card-data-text {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 576px) {
 }
