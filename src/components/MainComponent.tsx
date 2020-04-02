@@ -195,7 +195,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 														{this.state.dataForDisplay.cases.active}
 													</div>
 												</div>
-												<div className='col-12 hide-on-small-devices'>
+												<div className='col-12'>
 													<div className='big-card-data-title'>CRITICAL</div>
 													<div className='big-card-data-text'>
 														{' '}
@@ -209,7 +209,7 @@ export class MainComponent<MainComponentProps, MainComponentState> extends React
 														{this.state.dataForDisplay.cases.recovered}
 													</div>
 												</div>
-												<div className='col-12 hide-on-small-devices'>
+												<div className='col-12'>
 													<div className='big-card-data-title'>NEW DEATHS</div>
 													<div className='big-card-data-text'>
 														{' '}
